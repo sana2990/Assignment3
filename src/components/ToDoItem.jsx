@@ -6,10 +6,11 @@ function ToDoItem(props){
         <input
           type="checkbox"
           checked={props.items.isCompleted}
+          onChange={()=> props.onToggle(props.items.id)}
         />
       </td>
       <td>
-        <button>Delete</button>
+        <button onClick={() => props.onDelete(props.items.id)}>Delete</button>
       </td>
     </tr>
     )
