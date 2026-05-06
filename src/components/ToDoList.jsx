@@ -34,7 +34,7 @@ function ToDoList(props){
 
         <tbody>
           {props.listData.map((data) => (
-            <ToDoItem key={data.id} items={data} />
+            <ToDoItem key={data.id} items={data} onDelete={props.onDelete} onToggle={props.onToggle} />
           ))}
         </tbody>
       </table>
