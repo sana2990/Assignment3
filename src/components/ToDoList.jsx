@@ -1,5 +1,5 @@
 import ToDoItem from "./ToDoItem";
-import { list as initialList } from "../utils/mockData";
+//import { list as initialList } from "../utils/mockData";
 import { useState } from "react";
 
 function ToDoList(props){
@@ -18,12 +18,16 @@ function ToDoList(props){
     }
     return(
         <>
-          <div>
-            <input type="text" name="" id="" placeholder="Enter Task" onChange={(e) => setInputText(e.target.value)}></input>
+          <div className="Heading">
+            <input type="text" name="" id="" value={inputText} placeholder="Enter Task" onChange={(e) => setInputText(e.target.value)}></input>
             <br/>
+            <br />
             <button onClick={handleList}>Save</button>
           </div>
-           <table border="1">
+          <br />
+          <br />
+          <div className="table-wrapper" >
+              <table border="1">
         <thead>
           <tr>
             <th>Task</th>
@@ -31,13 +35,15 @@ function ToDoList(props){
             <th>Action</th>
           </tr>
         </thead>
-
+        
         <tbody>
           {props.listData.map((data) => (
             <ToDoItem key={data.id} items={data} onDelete={props.onDelete} onToggle={props.onToggle} />
           ))}
         </tbody>
       </table>
+          </div>
+         
         </>
     
     )

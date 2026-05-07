@@ -1,8 +1,8 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 import Heading from './components/Heading';
 import ToDoList from './components/ToDoList';
-import { list } from './utils/mockData';
+//import { list } from './utils/mockData';
 
 function App() {
     const [todo,setToDo] = useState(()=> {
@@ -25,11 +25,13 @@ function App() {
       ? { ...item, isCompleted: !item.isCompleted }
       : item
   );
+  setToDo(updatedTodos);
 }
 
   return (
     <div>
       <Heading />
+      <br />
       <ToDoList listData= {todo} setToDo = {setToDo} onDelete={handleDelete} onToggle={handleToggle} />
       <br />
     </div>
