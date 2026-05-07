@@ -7,7 +7,7 @@ import ToDoList from './components/ToDoList';
 function App() {
     const [todo,setToDo] = useState(()=> {
     const saved = localStorage.getItem("todos");
-    return saved ? JSON.parse(saved) : list;
+    return saved ? JSON.parse(saved) : [];
   });
 
    const handleDelete = (id) => {
